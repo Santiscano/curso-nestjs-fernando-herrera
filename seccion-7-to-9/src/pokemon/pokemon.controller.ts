@@ -1,4 +1,5 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
+
 import { PokemonService } from './pokemon.service';
 import { CreatePokemonDto } from './dto/create-pokemon.dto';
 import { UpdatePokemonDto } from './dto/update-pokemon.dto';
@@ -31,7 +32,7 @@ export class PokemonController {
   }
 
   @Delete(':id')
-  remove(@Param('id', ParseMongoIdPipe ) id: string) {
+  remove(@Param('id', ParseMongoIdPipe ) id: string) { // se utiliza pipe de mongoid que es personalizado
     return this.pokemonService.remove( id );
   }
 }

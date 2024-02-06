@@ -12,6 +12,7 @@ export class CarsController {
   ) {}
 
   @Get() // decorador que define el tipo de peticion y ruta
+  // @HttpCode( HttpStatus.UNAUTHORIZED ) // esta es la forma como podemos personalizar estas opciones de respuesta desde nest
   getAllCars() {
     return this.carsService.findAll();
   }

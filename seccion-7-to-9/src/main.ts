@@ -14,7 +14,7 @@ async function bootstrap() {
       forbidNonWhitelisted: true, // genera el error si envia datos que no espero
       transform: true, // permite la transformacion de los DTO para los que recibe como parametros o body
       transformOptions: {
-        enableImplicitConversion: true,
+        enableImplicitConversion: true, // esta tambien es necesaria para la transformacion de DTO's
       }
     })
   );

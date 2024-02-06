@@ -14,7 +14,7 @@ export class SeedService {
 
   constructor(
     @InjectModel( Pokemon.name )
-    private readonly pokemonModel: Model<Pokemon>,
+    private readonly pokemonModel: Model<Pokemon>, // aqui solo se utiliza el modelo para usar sus metodos
 
     private readonly http: AxiosAdapter,
   ) {}
@@ -38,7 +38,7 @@ export class SeedService {
 
     });
 
-    await this.pokemonModel.insertMany(pokemonToInsert);
+    await this.pokemonModel.insertMany(pokemonToInsert); // con el insert many tenemos un array de objetos, es como un bulk
 
 
     return 'Seed Executed';

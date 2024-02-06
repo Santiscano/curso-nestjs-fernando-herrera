@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
 @Schema()
-export class Pokemon extends Document {
+export class Pokemon extends Document { // el extend Document es para que tenga todas las propiedades de un documento de mongo
 
     // id: string // Mongo me lo da
     @Prop({
@@ -20,4 +20,4 @@ export class Pokemon extends Document {
 }
 
 
-export const PokemonSchema = SchemaFactory.createForClass( Pokemon );
+export const PokemonSchema = SchemaFactory.createForClass( Pokemon ); // esto viene en la documentacion, esto siempre sera igual

@@ -1,7 +1,7 @@
 import { join } from 'path'; // en Node
 import { Module } from '@nestjs/common';
-import { ServeStaticModule } from '@nestjs/serve-static';
-import { MongooseModule } from '@nestjs/mongoose';
+import { ServeStaticModule } from '@nestjs/serve-static'; // hay que instalarlo y es para archivos estaticos
+import { MongooseModule } from '@nestjs/mongoose'; //
 import { ConfigModule } from '@nestjs/config';
 
 import { PokemonModule } from './pokemon/pokemon.module';
@@ -28,7 +28,7 @@ import { JoiValidationSchema } from './config/joi.validation';
 // -- update product_images set url = 'http://localhost:3000/api/files/product/' || url
 
 
-    
+    // conexion raiz de mongo
     MongooseModule.forRoot( process.env.MONGODB, {
       dbName: 'pokemonsdb'
     }),
