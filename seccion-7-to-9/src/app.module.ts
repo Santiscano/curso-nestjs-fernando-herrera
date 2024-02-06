@@ -18,7 +18,8 @@ import { JoiValidationSchema } from './config/joi.validation';
       validationSchema: JoiValidationSchema,
     }),
     
-    ServeStaticModule.forRoot({
+    // servir contenido estatico, requiere la instalacion del @nestjs/serve-static
+    ServeStaticModule.forRoot({ 
       rootPath: join(__dirname,'..','public'), 
     }),
 

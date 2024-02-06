@@ -6,7 +6,7 @@ async function bootstrap() {
   
   const app = await NestFactory.create(AppModule);
 
-  app.setGlobalPrefix('api/v2');
+  app.setGlobalPrefix('api/v2'); // especifica el prefijo general
 
   app.useGlobalPipes( // es un pipe global de validaciones
     new ValidationPipe({
