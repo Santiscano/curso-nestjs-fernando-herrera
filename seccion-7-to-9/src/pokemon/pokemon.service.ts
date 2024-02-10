@@ -15,16 +15,12 @@ export class PokemonService {
   private defaultLimit: number;
 
   constructor(
-    
     @InjectModel( Pokemon.name ) // InjectModel se trae de nest/mongoose, y es necesario para inyectar el pokemonModel
     private readonly pokemonModel: Model<Pokemon>, // pokemon es referencia de entity, model de mongoose
 
-    private readonly configService: ConfigService,
-
+    private readonly configService: ConfigService, // injectamos el modulo global
   ) {
-    
-    this.defaultLimit = configService.get<number>('defaultLimit') ;
-    // console.log({ defaultLimit: configService.get<number>('defaultLimit') })
+    this.defaultLimit = configService.get<number>('defaultLimit') ; // configService viene del config global para .env y como es un tipo generico definimos number para que el valor sea numerico
   }
 
   async create(createPokemonDto: CreatePokemonDto) {

@@ -13,8 +13,8 @@ import { JoiValidationSchema } from './config/joi.validation';
 @Module({
   imports: [
     
-    ConfigModule.forRoot({
-      load: [ EnvConfiguration ],
+    ConfigModule.forRoot({ // hay que instalar la libreria y luego llamarlo asi
+      load: [ EnvConfiguration ], // esto es una funcion que contiene los valores del process.env o definidos por defecto
       validationSchema: JoiValidationSchema,
     }),
     

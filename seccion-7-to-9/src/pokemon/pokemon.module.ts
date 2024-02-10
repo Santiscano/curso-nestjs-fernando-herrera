@@ -9,7 +9,7 @@ import { Pokemon, PokemonSchema } from './entities/pokemon.entity';
   controllers: [ PokemonController ],
   providers: [ PokemonService ],
   imports: [
-    ConfigModule,
+    ConfigModule, // importamos esto para poder utilizar las variables de entorno
     MongooseModule.forFeature([ 
       {
         name: Pokemon.name, // este pokemon viene de las entity
