@@ -7,10 +7,13 @@ import { CreateOrderDto, OrderPaginationDto, StatusDto } from './dto';
 import { firstValueFrom } from 'rxjs';
 import { PaginationDto } from 'src/common';
 
+// import { ORDER_SERVICE } from 'src/config';
+
 @Controller('orders')
 export class OrdersController {
 
   constructor(
+    // @Inject(ORDER_SERVICE) private readonly client: ClientProxy, // esta es la inyección para el cliente de TCP
     @Inject(NATS_SERVICE) private readonly client: ClientProxy,
   ) {}
 

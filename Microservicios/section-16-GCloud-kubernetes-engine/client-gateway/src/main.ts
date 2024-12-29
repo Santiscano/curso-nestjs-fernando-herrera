@@ -22,7 +22,7 @@ async function bootstrap() {
     }),
   );
 
-  app.useGlobalFilters(new RpcCustomExceptionFilter())
+  app.useGlobalFilters(new RpcCustomExceptionFilter()) //* esto es necesario para capturar los errores de los microservicios
 
   await app.listen(envs.port);
 

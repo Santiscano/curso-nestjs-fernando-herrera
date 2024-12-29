@@ -8,10 +8,11 @@ async function bootstrap() {
 
   const logger = new Logger('Main');
 
+  // const app = await NestFactory.create(AppModule); // forma tradicional de crear una aplicación
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     AppModule,
     {
-      transport: Transport.NATS,
+      transport: Transport.NATS, // aqui estan las diferentes opciones de transporte
       options: {
         servers: envs.natsServers
       }
@@ -25,8 +26,11 @@ async function bootstrap() {
     }),
   );
 
+  // await app.listen(envs.port); // forma tradicional de levantar la aplicación
   await app.listen();
   logger.log(`Products Microservice running on port ${ envs.port }`);
+
+  // app.startAllMicroservices(); // forma de crear una aplicacion hibrida
 
 }
 bootstrap();

@@ -18,9 +18,13 @@ import { NATS_SERVICE } from 'src/config';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 
+// import { PRODUCT_SERVICE } from 'src/config';
+
+
 @Controller('products')
 export class ProductsController {
   constructor(
+    // @Inject(PRODUCT_SERVICE) private readonly client: ClientProxy, // esta es la inyección para el cliente de TCP
     @Inject(NATS_SERVICE) private readonly client: ClientProxy,
   ) {}
 
@@ -46,15 +50,14 @@ export class ProductsController {
       catchError((err) => {
         throw new RpcException(err);
       }),
-    );
+    ); // * this is a observable
 
+    // * this is equal, but this is a promise
     // try {
-
     //   const product = await firstValueFrom(
     //     this.productsClient.send({ cmd: 'find_one_product' },{ id })
     //   );
     //   return product;
-
     // } catch (error) {
     //   throw new RpcException(error);
     // }

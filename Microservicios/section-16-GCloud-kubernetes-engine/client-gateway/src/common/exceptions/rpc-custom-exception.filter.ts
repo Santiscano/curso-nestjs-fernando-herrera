@@ -19,6 +19,7 @@ export class RpcCustomExceptionFilter implements ExceptionFilter {
 
 
 
+    // If the error is an object with status and message properties "common error to nestjs"
     if (
       typeof rpcError === 'object' &&
       'status' in rpcError &&

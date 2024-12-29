@@ -14,15 +14,15 @@ const envsSchema = joi.object({
 
   NATS_SERVERS: joi.array().items( joi.string() ).required(),
 })
-.unknown(true);
+.unknown(true); // Permite propiedades no definidas en el esquema
 
 const { error, value } = envsSchema.validate({ 
-  ...process.env,
+  ...process.env, //Carga las variables de entorno para validarlas
   NATS_SERVERS: process.env.NATS_SERVERS?.split(',')
 });
 
 
-if ( error ) {
+if ( error ) { // si hay un error en la validación del esquema genera un error
   throw new Error(`Config validation error: ${ error.message }`);
 }
 

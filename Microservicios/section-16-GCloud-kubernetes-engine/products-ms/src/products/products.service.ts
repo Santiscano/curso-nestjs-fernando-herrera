@@ -8,11 +8,11 @@ import { PaginationDto } from 'src/common';
 
 @Injectable()
 export class ProductsService extends PrismaClient implements OnModuleInit {
-  private readonly logger = new Logger('ProductsService');
+  private readonly logger = new Logger('ProductsService'); // en los logs muestra el nombre de la instancia cuando se use un log de esta instancia
 
   onModuleInit() {
     this.$connect();
-    this.logger.log('Database connected');
+    this.logger.log('Database connected'); // ejemplo del log: [ProductsService] Database connected
   }
 
   create(createProductDto: CreateProductDto) {
@@ -24,7 +24,9 @@ export class ProductsService extends PrismaClient implements OnModuleInit {
   async findAll(paginationDto: PaginationDto) {
     const { page, limit } = paginationDto;
 
-    const totalPages = await this.product.count({ where: { available: true } });
+    const totalPages = await this.product.count({ 
+      where: { available: true } 
+    });
     const lastPage = Math.ceil(totalPages / limit);
 
     return {
@@ -49,6 +51,7 @@ export class ProductsService extends PrismaClient implements OnModuleInit {
     });
 
     if (!product) {
+      // throw new NotFoundException(`Product with id #${id} not found`);
       throw new RpcException({
         message: `Product with id #${id} not found`,
         status: HttpStatus.BAD_REQUEST,
@@ -72,6 +75,7 @@ export class ProductsService extends PrismaClient implements OnModuleInit {
   async remove(id: number) {
     await this.findOne(id);
 
+    // ! el problema en microservicios es la falta de integridad referencial al no saber si hay otros servicios que dependen de este producto
     // return this.product.delete({
     //   where: { id }
     // });

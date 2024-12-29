@@ -18,7 +18,7 @@ async function bootstrap() {
     },
   );
 
-  app.useGlobalPipes(
+  app.useGlobalPipes( // este pipe es para validar los datos que llegan a los controladores como lo solicitan los DTOs
     new ValidationPipe({
       whitelist: true,
       forbidNonWhitelisted: true,
