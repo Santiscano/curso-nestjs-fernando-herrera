@@ -1,0 +1,71 @@
+; ARQUITECTURA HEXAGONAL
+src/
+├── payments/
+├── ├── application/
+│   ├── domain/
+│   │   ├── entities/
+│   │   ├── value-objects/
+│   │   ├── interface o abstract-class"DB"/
+│   │   ├── events/
+│   │   ├── exceptions/
+├── ├── infrastructure/
+
+
+; EJEMPLO ARQUITECTURA EN APP PAYMENT
+src/
+├── payments/
+├── ├── application/
+│   │   ├── create-payment-use-case/
+│   │   │   └── create-payment.dto.ts
+│   │   │   └── create-payment.use-case.ts
+│   │   ├── find-payment-by-id-use-case/
+│   │   │   └── find-payment-by-id.dto.ts
+│   │   │   └── find-payment-by-id.use-case.ts
+│   ├── domain/
+│   │   └── payment-not-found.exception.ts
+│   │   └── payment.entity.ts
+│   │   └── payment.repository.ts
+├── ├── infrastructure/
+│   │   ├── http-api/
+│   │   │   ├── v1/
+│   │   │   │   ├── create-payment/
+│   │   │   │   │   └── create-payment.controller.ts
+│   │   │   │   │   └── create-payment.http-dto.ts
+│   │   │   │   ├── find-payment-by-id/
+│   │   │   │   │   └── find-payment-bi-id.controller.ts
+│   │   │   │   │   └── find-payment-bi-id.http-dto.ts
+│   │   │   └── route.constants.ts
+│   │   ├── repositories/
+│   │   │   └── in-memory.payment-repository.ts
+│   │   └── payment.module.ts
+
+
+
+; FORMA BASICA
+src/
+├── application/
+│   ├── dto/
+│   │   ├── task.dto.ts
+│   ├── services/
+│   |   └── task.service.ts
+├── domain/
+│   ├── entities/
+│   ├── value-objects/
+│   ├── interfaces/
+│   │   └── task.entity.ts
+│   ├── interfaces/
+│   │   └── task.d.ts
+├── infrastructure/
+│   └── controllers/
+│   │   └── task.controller.ts
+│   ├── repositories/
+│   │   └── task.repository.ts
+├── app.module.ts
+
+
+
+lineas
+├
+──
+└
+│
