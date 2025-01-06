@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  # para que cada servicio funcione correctamente, se debe de tener un archivo Dockerfile en la raiz de cada servicio 
+  client-gateway: # Nombre del servicio, esto para cada servicio
+    build: ./client-gateway # Ruta donde se construira la imagen
+    ports:
+      - "3000:3000" # Puerto
+    volumes:
+      - ./client-gateway/src:/usr/src/app/src # Volumen - cada que se hacen cambios en el codigo fuente se reflejan en el contenedor, y la ruta /usr/src/app/src es la ruta que usa node para correr la aplicacion
+    command: npm run start:dev # Comando que se utiliza normalmente para correr la aplicacion
+  auth-microservice:
+  product-microservice:
+  order-microservice:
+  payment-microservice:
